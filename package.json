@@ -1,0 +1,18 @@
+{
+  "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.5",
+    "parcel": "^2.6.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "name": "cloudv2-jessie-react",
+  "version": "1.0.0",
+  "description": "eLocker Manager Application",
+  "repository": "git@github.com:elocker/cloudv2-jessie-react.git",
+  "author": "Yana Agun Siswanto <yana.developer@gmail.com>",
+  "private": true
+}

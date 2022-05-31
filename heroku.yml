@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: static-web-server --port=$PORT --root=/public --page-fallback=/public/index.html
