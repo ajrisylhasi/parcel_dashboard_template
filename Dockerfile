@@ -2,8 +2,8 @@ FROM node AS builder
 ARG BASE_URL
 WORKDIR /app
 COPY . /app
-RUN yarn install
-RUN yarn run parcel build src/index.html
+RUN npm install
+RUN npm run parcel build src/index.html
 
 FROM joseluisq/static-web-server:2-alpine
 
