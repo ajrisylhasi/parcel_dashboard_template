@@ -1,19 +1,18 @@
 import React, { createContext, useMemo } from "react";
+import { AuthInterface, initialAuthState } from "../../store/auth-reducer";
+import {
+  initialLayoutState,
+  LayoutInterface
+} from "../../store/layout-reducer";
 import { store, reducer } from "../../store/store";
 
 /* provides global state and dispatch to all children */
-
-interface LayoutInterface {
-  openMessage: boolean;
-  signalMessage: string;
-  error: boolean;
-  pageTitle: string;
-}
 
 interface AppContextInterface {
   dispatch: (action: string | object) => void;
   state: {
     layout: LayoutInterface;
+    auth: AuthInterface;
   };
 }
 
@@ -22,20 +21,16 @@ const storeContext = createContext<AppContextInterface>({
     undefined;
   },
   state: {
-    layout: {
-      openMessage: false,
-      signalMessage: "",
-      error: false,
-      pageTitle: ""
-    }
+    layout: initialLayoutState,
+    auth: initialAuthState
   }
 });
 
 export { storeContext };
 
-type Props = {
+interface Props {
   children: JSX.Element;
-};
+}
 
 const Provider = ({ children }: Props) => {
   const [state, dispatch] = React.useReducer(reducer, store);

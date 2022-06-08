@@ -45,13 +45,11 @@ const Login = () => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const data = {
-      user: {
-        email: formData.get("email"),
-        password: formData.get("password")
-      }
+      email: formData.get("email"),
+      password: formData.get("password")
     };
     axios
-      .post(`${REACT_APP_SITE_URL}/api/users/login/`, data)
+      .post(`${REACT_APP_SITE_URL}/api/v1/sign_in/`, data)
       .then((res) => {
         logUser(res);
       })
@@ -118,11 +116,6 @@ const Login = () => {
             <Grid item xs>
               <Link href="/" variant="body2">
                 Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link component={RouterLink} to="/register" variant="body2">
-                Don&apos;t have an account? Sign Up
               </Link>
             </Grid>
           </Grid>

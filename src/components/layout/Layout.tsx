@@ -16,7 +16,7 @@ const { REACT_APP_SITE_URL } = process.env;
 const Layout = () => {
   const navigate = useNavigate();
   const { dispatch } = React.useContext(storeContext);
-  const [cookies] = useCookies(["auth"]);
+  const [cookies] = useCookies(["id"]);
 
   const getData = () => {
     axios.get(`${REACT_APP_SITE_URL}/api/me/`).then((res) => {

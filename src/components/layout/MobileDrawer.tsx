@@ -2,7 +2,7 @@ import * as React from "react";
 import Drawer from "@mui/material/Drawer";
 import { SyntheticEvent } from "react";
 
-type Props = {
+interface Props {
   closeDrawer: (event: Event | SyntheticEvent<Element, Event>) => void;
   open: boolean;
   children: JSX.Element;

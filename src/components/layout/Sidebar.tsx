@@ -21,6 +21,7 @@ const Sidebar = () => {
   const { state } = useContext(storeContext);
 
   const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -51,7 +52,7 @@ const Sidebar = () => {
       <List component="nav">
         <MainListItems closeDrawer={closeDrawer} />
         <Divider sx={{ my: 1 }} />
-        <SecondaryListItems closeDrawer={closeDrawer} />
+        <SecondaryListItems />
       </List>
     </>
   );
@@ -84,6 +85,7 @@ const Sidebar = () => {
             sx={{ flexGrow: 1 }}
           >
             {state.layout.pageTitle}
+            {state.auth.user.name}
           </Typography>
         </Toolbar>
       </AppBar>

@@ -1,7 +1,7 @@
 import { Alert, AlertColor, Snackbar } from "@mui/material";
 import React, { SyntheticEvent } from "react";
 
-type Props = {
+interface Props {
   open: boolean;
   handleClose: (event: Event | SyntheticEvent<Element, Event>) => void;
   type: AlertColor;
