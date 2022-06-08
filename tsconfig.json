@@ -6,7 +6,12 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "lib": ["dom", "dom.iterable", "esnext", "es6"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "es6"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -14,14 +19,22 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "paths": {
-      "*": ["/src/*"]
+      "*": [
+        "/src/*"
+      ]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "target": "es5",
-    "types": ["node", "react/next", "react-dom/next"]
+    "types": [
+      "node",
+      "react/next",
+      "react-dom/next"
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
