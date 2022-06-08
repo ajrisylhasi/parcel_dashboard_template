@@ -1,7 +1,6 @@
 import Typography from "@mui/material/Typography";
-import React from "react";
 
-const Copyright = (props) => (
+const Copyright = (props: { [key: string]: object }) => (
   <Typography variant="body2" color="text.secondary" align="center" {...props}>
     Copyright © Hack&Heal {new Date().getFullYear()}.
   </Typography>

@@ -7,7 +7,12 @@ import ReactDOM from "react-dom/client";
 import React from "react";
 import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById("app"));
+const rootElement = document.getElementById("app");
+
+if (!rootElement) throw new Error("No #app element found");
+
+const root = ReactDOM.createRoot(rootElement);
+
 root.render(
   <React.StrictMode>
     <App />

@@ -7,10 +7,14 @@ const initialAuthState = {
 
 const authActions = {
   AUTH_SET_ALL: "AUTH_SET_ALL",
-  CLEAR_AUTH: "CLEAR_AUTH"
+  CLEAR_AUTH: "CLEAR_AUTH",
+  LOGOUT: "LOGOUT"
 };
 
-function authReducer(state: any, action: { type: string; payload: any }) {
+function authReducer(
+  state: string[],
+  action: { type: string; payload: string[] }
+) {
   switch (action.type) {
     case authActions.AUTH_SET_ALL:
       return {

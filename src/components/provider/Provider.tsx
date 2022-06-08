@@ -3,7 +3,33 @@ import { store, reducer } from "../../store/store";
 
 /* provides global state and dispatch to all children */
 
-const storeContext = createContext({});
+interface LayoutInterface {
+  openMessage: boolean;
+  signalMessage: string;
+  error: boolean;
+  pageTitle: string;
+}
+
+interface AppContextInterface {
+  dispatch: (action: string | object) => void;
+  state: {
+    layout: LayoutInterface;
+  };
+}
+
+const storeContext = createContext<AppContextInterface>({
+  dispatch: () => {
+    undefined;
+  },
+  state: {
+    layout: {
+      openMessage: false,
+      signalMessage: "",
+      error: false,
+      pageTitle: ""
+    }
+  }
+});
 
 export { storeContext };
 

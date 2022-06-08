@@ -21,7 +21,7 @@ import { authActions } from "../../store/auth-reducer";
 const { REACT_APP_SITE_URL } = process.env;
 const Login = () => {
   const navigate = useNavigate();
-  const [cookies, setCookie] = useCookies(["auth"]);
+  const [cookies, setCookie] = useCookies<string>(["auth"]);
   const { dispatch } = useContext(storeContext);
 
   const logUser = (token: { data: { token: string } }) => {

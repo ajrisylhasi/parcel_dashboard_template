@@ -10,7 +10,10 @@ const layoutActions = {
   CLEAR_LAYOUT: "CLEAR_LAYOUT"
 };
 
-function layoutReducer(state: any, action: { type: string; payload: any }) {
+function layoutReducer(
+  state: string[],
+  action: { type: string; payload: string[] }
+) {
   switch (action.type) {
     case layoutActions.LAYOUT_SET_ALL:
       return {
