@@ -9,12 +9,12 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import Box from "@mui/material/Box";
-import AppBar from "../../shared/components/AppBar";
-import Drawer from "../../shared/components/Drawer";
-import MainListItems from "../../components/layout/MainListItems";
-import SecondaryListItems from "../../components/layout/SecondaryListItems";
-import { storeContext } from "../../components/provider/Provider";
-import MobileDrawer from "../../components/layout/MobileDrawer";
+import AppBar from "src/shared/components/AppBar";
+import Drawer from "src/shared/components/Drawer";
+import MainListItems from "src/components/layout/MainListItems";
+import SecondaryListItems from "src/components/layout/SecondaryListItems";
+import { storeContext } from "src/components/provider/Provider";
+import MobileDrawer from "src/components/layout/MobileDrawer";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);

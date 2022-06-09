@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { storeContext } from "../../components/provider/Provider";
-import { layoutActions } from "../../store/reducers/layout-reducer";
-import Signal from "../../shared/components/Signal";
+import { storeContext } from "src/components/provider/Provider";
+import { layoutActions } from "src/store/reducers/layout-reducer";
+import Signal from "src/shared/components/Signal";
 
 const SignalHandler = () => {
   const { state, dispatch } = useContext(storeContext);

@@ -1,13 +1,13 @@
-import React, { createContext, useMemo } from "react";
+import { createContext, useMemo, useReducer } from "react";
 import {
   AuthInterface,
   initialAuthState
-} from "../../store/reducers/auth-reducer";
+} from "src/store/reducers/auth-reducer";
 import {
   initialLayoutState,
   LayoutInterface
-} from "../../store/reducers/layout-reducer";
-import { store, reducer } from "../../store/store";
+} from "src/store/reducers/layout-reducer";
+import { store, reducer } from "src/store/store";
 
 /* provides global state and dispatch to all children */
 
@@ -36,7 +36,7 @@ interface Props {
 }
 
 const Provider = ({ children }: Props) => {
-  const [state, dispatch] = React.useReducer(reducer, store);
+  const [state, dispatch] = useReducer(reducer, store);
   const providerMemo = useMemo(() => ({ state, dispatch }), [state]);
 
   return (

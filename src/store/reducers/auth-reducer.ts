@@ -1,5 +1,5 @@
 import User from "src/types/User";
-import { deleteAllCookies } from "src/actions/authentication_actions/index";
+import { deleteAllCookies } from "src/actions/authActions";
 
 export interface AuthInterface {
   user: User;

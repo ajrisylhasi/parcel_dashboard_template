@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import axios from "axios";
 import { Route, useNavigate, Routes } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -6,17 +6,17 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Home from "../home/Home";
-import { storeContext } from "../provider/Provider";
-import { authActions } from "../../store/reducers/auth-reducer";
+import Home from "src/components/home/Home";
+import { storeContext } from "src/components/provider/Provider";
+import { authActions } from "src/store/reducers/auth-reducer";
 import Sidebar from "./Sidebar";
 
 const { REACT_APP_SITE_URL } = process.env;
 
 const Layout = () => {
   const navigate = useNavigate();
-  const { dispatch } = React.useContext(storeContext);
-  const [cookies] = useCookies(["id"]);
+  const { dispatch } = useContext(storeContext);
+  const [cookies] = useCookies<string>(["id_token"]);
 
   const getData = () => {
     axios.get(`${REACT_APP_SITE_URL}/api/me/`).then((res) => {
@@ -36,8 +36,8 @@ const Layout = () => {
   };
 
   useEffect(() => {
-    if (cookies.id) {
-      axios.defaults.headers.common.Authorization = cookies.id;
+    if (cookies.id_token) {
+      axios.defaults.headers.common.Authorization = cookies.id_token;
       getData();
       navigate("/");
     } else {

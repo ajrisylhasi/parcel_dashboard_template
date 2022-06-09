@@ -4,8 +4,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
-import { authActions } from "../../store/reducers/auth-reducer";
-import { storeContext } from "../provider/Provider";
+import { authActions } from "src/store/reducers/auth-reducer";
+import { storeContext } from "src/components/provider/Provider";
 
 const SecondaryListItems = () => {
   const navigate = useNavigate();

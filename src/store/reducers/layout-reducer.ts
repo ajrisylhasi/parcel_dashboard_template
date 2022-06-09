@@ -14,7 +14,9 @@ const initialLayoutState: LayoutInterface = {
 
 const layoutActions = {
   LAYOUT_SET_ALL: "LAYOUT_SET_ALL",
-  CLEAR_LAYOUT: "CLEAR_LAYOUT"
+  CLEAR_LAYOUT: "CLEAR_LAYOUT",
+  LAYOUT_SET_USER_LOGGED_IN: "LAYOUT_SET_USER_LOGGED_IN",
+  LAYOUT_SET_USER_LOGGED_IN_ERROR: "LAYOUT_SET_USER_LOGGED_IN_ERROR"
 };
 
 function layoutReducer(
@@ -30,6 +32,25 @@ function layoutReducer(
     case layoutActions.CLEAR_LAYOUT:
       return {
         ...initialLayoutState
+      };
+    case layoutActions.LAYOUT_SET_USER_LOGGED_IN:
+      return {
+        ...state,
+        ...{
+          openMessage: true,
+          error: false,
+          signalMessage: "Logged in successfully!"
+        }
+      };
+    case layoutActions.LAYOUT_SET_USER_LOGGED_IN_ERROR:
+      return {
+        ...state,
+        ...{
+          openMessage: true,
+          error: true,
+          signalMessage:
+            "Something went wrong! Please check your credentials and try again."
+        }
       };
     default:
       return state;

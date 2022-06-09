@@ -1,5 +1,4 @@
-import React, { useEffect, useContext } from "react";
-import axios from "axios";
+import { useEffect, useContext } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Avatar from "@mui/material/Avatar";
@@ -15,28 +14,14 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import { storeContext } from "src/components/provider/Provider";
-import { authActions } from "src/store/reducers/auth-reducer";
 import { layoutActions } from "src/store/reducers/layout-reducer";
+import { logUserIn } from "src/actions/authActions";
+import { postSignIn } from "src/apis/authApi";
 
-const { REACT_APP_SITE_URL } = process.env;
 const Login = () => {
-  const navigate = useNavigate();
-  const [cookies, setCookie] = useCookies<string>(["auth"]);
+  const [cookies] = useCookies<string>(["id_token"]);
   const { dispatch } = useContext(storeContext);
-
-  const logUser = (token: { data: { token: string } }) => {
-    setCookie("id", token.data.token, {
-      path: "/",
-      maxAge: 1209600
-    });
-    dispatch({
-      type: authActions.AUTH_SET_ALL,
-      payload: {
-        isLoggedIn: true
-      }
-    });
-    navigate("/");
-  };
+  const navigate = useNavigate();
 
   const handleSubmit = (event: {
     preventDefault: () => void;
@@ -48,34 +33,23 @@ const Login = () => {
       email: formData.get("email"),
       password: formData.get("password")
     };
-    axios
-      .post(`${REACT_APP_SITE_URL}/api/v1/sign_in/`, data)
+    postSignIn(data)
       .then((res) => {
-        logUser(res);
+        logUserIn(res.data.token);
         dispatch({
-          type: layoutActions.LAYOUT_SET_ALL,
-          payload: {
-            openMessage: true,
-            error: false,
-            signalMessage: "Logged in successfully!"
-          }
+          type: layoutActions.LAYOUT_SET_USER_LOGGED_IN
         });
+        navigate("/");
       })
       .catch(() => {
         dispatch({
-          type: layoutActions.LAYOUT_SET_ALL,
-          payload: {
-            openMessage: true,
-            error: true,
-            signalMessage:
-              "Something went wrong! Please check your credentials and try again."
-          }
+          type: layoutActions.LAYOUT_SET_USER_LOGGED_IN_ERROR
         });
       });
   };
 
   useEffect(() => {
-    if (cookies.id) {
+    if (cookies.id_token) {
       navigate("/");
     }
   });
