@@ -1,9 +1,12 @@
 import React, { createContext, useMemo } from "react";
-import { AuthInterface, initialAuthState } from "../../store/auth-reducer";
+import {
+  AuthInterface,
+  initialAuthState
+} from "../../store/reducers/auth-reducer";
 import {
   initialLayoutState,
   LayoutInterface
-} from "../../store/layout-reducer";
+} from "../../store/reducers/layout-reducer";
 import { store, reducer } from "../../store/store";
 
 /* provides global state and dispatch to all children */

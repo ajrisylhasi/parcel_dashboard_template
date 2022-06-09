@@ -12,7 +12,7 @@ import Layout from "./components/layout/Layout";
 import generalTheme from "./theme";
 import SignalHandler from "./components/layout/SignalHandler";
 
-const REACT_APP_SITE_URL = process.env.REACT_APP_SITE_URL;
+// const REACT_APP_SITE_URL = process.env.REACT_APP_SITE_URL;
 
 const App = () => (
   <Provider>

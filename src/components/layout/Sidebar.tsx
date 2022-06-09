@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
@@ -17,7 +17,7 @@ import { storeContext } from "../../components/provider/Provider";
 import MobileDrawer from "../../components/layout/MobileDrawer";
 
 const Sidebar = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const { state } = useContext(storeContext);
 
   const isPhone = useMediaQuery({ query: "(max-width: 768px)" });

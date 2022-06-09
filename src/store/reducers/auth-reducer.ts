@@ -1,23 +1,16 @@
-import User from "/types/User";
-import Cookies from "js-cookie";
-
-function deleteAllCookies() {
-  Object.keys(Cookies.get()).forEach((cookieName) => {
-    Cookies.remove(cookieName);
-  });
-}
+import User from "src/types/User";
+import { deleteAllCookies } from "src/actions/authentication_actions/index";
 
 export interface AuthInterface {
   user: User;
-  token: string;
+  token?: string;
 }
 
 const initialAuthState: AuthInterface = {
   user: {
-    name: "aaa",
-    email: "aaa"
-  },
-  token: ""
+    name: "",
+    email: ""
+  }
 };
 
 const authActions = {

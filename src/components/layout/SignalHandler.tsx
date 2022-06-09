@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { storeContext } from "../../components/provider/Provider";
-import { layoutActions } from "../../store/layout-reducer";
+import { layoutActions } from "../../store/reducers/layout-reducer";
 import Signal from "../../shared/components/Signal";
 
 const SignalHandler = () => {

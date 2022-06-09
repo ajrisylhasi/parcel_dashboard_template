@@ -14,9 +14,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
-import { storeContext } from "../provider/Provider";
-import Copyright from "../../shared/components/Copyright";
-import { authActions } from "../../store/auth-reducer";
+import { storeContext } from "src/components/provider/Provider";
+import { authActions } from "src/store/reducers/auth-reducer";
+import { layoutActions } from "src/store/reducers/layout-reducer";
 
 const { REACT_APP_SITE_URL } = process.env;
 const Login = () => {
@@ -52,8 +52,26 @@ const Login = () => {
       .post(`${REACT_APP_SITE_URL}/api/v1/sign_in/`, data)
       .then((res) => {
         logUser(res);
+        dispatch({
+          type: layoutActions.LAYOUT_SET_ALL,
+          payload: {
+            openMessage: true,
+            error: false,
+            signalMessage: "Logged in successfully!"
+          }
+        });
       })
-      .catch(() => {});
+      .catch(() => {
+        dispatch({
+          type: layoutActions.LAYOUT_SET_ALL,
+          payload: {
+            openMessage: true,
+            error: true,
+            signalMessage:
+              "Something went wrong! Please check your credentials and try again."
+          }
+        });
+      });
   };
 
   useEffect(() => {
@@ -114,14 +132,13 @@ const Login = () => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="/" variant="body2">
+              <Link to="/" variant="body2" component={RouterLink}>
                 Forgot password?
               </Link>
             </Grid>
           </Grid>
         </Box>
       </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
   );
 };

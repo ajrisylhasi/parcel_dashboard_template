@@ -1,7 +1,6 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Copyright from "../../shared/components/Copyright";
 
 const HomeContent = () => (
   <>
@@ -19,7 +18,6 @@ const HomeContent = () => (
         </Paper>
       </Grid>
     </Grid>
-    <Copyright sx={{ pt: 4 }} />
   </>
 );
 

@@ -1,6 +1,6 @@
 import combineReducers from "react-combine-reducers";
-import { initialLayoutState, layoutReducer } from "./layout-reducer";
-import { initialAuthState, authReducer } from "./auth-reducer";
+import { initialLayoutState, layoutReducer } from "./reducers/layout-reducer";
+import { initialAuthState, authReducer } from "./reducers/auth-reducer";
 
 const [reducer, store] = combineReducers({
   layout: [layoutReducer, initialLayoutState],

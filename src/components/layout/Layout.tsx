@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Home from "../home/Home";
 import { storeContext } from "../provider/Provider";
-import { authActions } from "../../store/auth-reducer";
+import { authActions } from "../../store/reducers/auth-reducer";
 import Sidebar from "./Sidebar";
 
 const { REACT_APP_SITE_URL } = process.env;
